@@ -1,4 +1,4 @@
-import logger
+import logging
 from fishfeed import FishTank
 
 logger = logging.getLogger('fishfeed')
