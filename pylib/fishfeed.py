@@ -6,16 +6,11 @@ logger = logging.getLogger('fishfeed')
 
 COLLECTOR_URL='http://127.0.0.1:8081'
 
-
-
 class FishTank(object):
 
     def __init__(self, tank_id):
         self.tank_id = tank_id
         self.recent_values = []
-    @property
-    def fishes(self):
-        pass
     
     def monitor(self):
         """Starts monitoring the fish tank"""
