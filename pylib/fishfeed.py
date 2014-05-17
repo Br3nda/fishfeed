@@ -1,4 +1,6 @@
 import logging
+import time
+import os
 
 logger = logging.getLogger('fishfeed')
 
@@ -8,19 +10,28 @@ COLLECTOR_URL='http://127.0.0.1:8081'
 
 class FishTank(object):
 
-    def __init__(self):
+    def __init__(self, tank_id):
+        self.tank_id = tank_id
         self.recent_values = []
     @property
     def fishes(self):
         pass
     
-    def monitor():
+    def monitor(self):
         """Starts monitoring the fish tank"""
-        
-        pass
+        while True:
+            value = self.get_sample()
+            self.record_value(value)
+    
+    def get_sample(self):
+        f = open('/dev/random', 'r+')
+        value = f.read(1)
+        return value
+
+
     def record_value(self, value):
         """Adds a sample to the list of things to send to the server"""
-        self.recent_values.append(time.time(), value)
+        self.recent_values.append((time.time(), value))
         
         #is it time to send to the server?
         if (self.recent_values) >= 100:
