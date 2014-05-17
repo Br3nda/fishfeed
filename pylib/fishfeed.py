@@ -1,4 +1,6 @@
+import logging
 
+logger = logging.getLogger('fishfeed')
 
 class FishTank(object):
     @property
@@ -6,6 +8,8 @@ class FishTank(object):
         pass
     
     def monitor():
+        """Starts monitoring the fish tank"""
+        
         pass
 
 
